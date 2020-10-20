@@ -1,5 +1,6 @@
 import sox
 import sys
+import os
 
 GAP_BETWEEN_EACH_USONIC_IN_MS=500
 USONIC_OUTPUT_FILE_NAME="usonic_output.wav"
@@ -41,7 +42,7 @@ if __name__ == '__main__':
     usonic_len = get_file_length(usonic_file)
     sonic_len = get_file_length(sonic_file)
 
-    if get_no_of_channels(sonic_len) == 2:
+    if get_no_of_channels(sonic_file) == 2:
         print(f'Channel count is 2')
         tfm = sox.Transformer()
         tfm.convert(n_channels=1)
@@ -58,3 +59,6 @@ if __name__ == '__main__':
         print(f'Merge failed')
 
     print(f'Merge Successful')
+
+    os.remove(USONIC_OUTPUT_FILE_NAME)
+    os.remove(SILENCE_ADDED_WAV)
