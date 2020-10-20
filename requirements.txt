@@ -1,0 +1,2 @@
+numpy==1.19.2
+sox @ git+https://github.com/rabitt/pysox.git@8dc4af878cfd01c2158f6d235543e664eb0ead79
